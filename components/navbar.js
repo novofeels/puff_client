@@ -1,23 +1,25 @@
-import Link from 'next/link'
-import { useEffect, useState, useRef } from 'react'
-import { useAppContext } from '../context/state'
+import Link from 'next/link';
+import { useEffect, useState, useRef } from 'react';
+import { useAppContext } from '../context/state';
+import { useRouter } from 'next/router';
 
 export default function Navbar() {
-  const { token, profile } = useAppContext()
-  const hamburger = useRef()
-  const navbar = useRef()
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const { token } = useAppContext();
+  const hamburger = useRef();
+  const navbar = useRef();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (token) {
-      setIsLoggedIn(true)
+      setIsLoggedIn(true);
     }
-  }, [token])
+  }, [token]);
 
   const showMobileNavbar = () => {
-    hamburger.current.classList.toggle('is-active')
-    navbar.current.classList.toggle('is-active')
-  }
+    hamburger.current.classList.toggle('is-active');
+    navbar.current.classList.toggle('is-active');
+  };
 
   const getLoggedInButtons = () => {
     return (
@@ -28,32 +30,19 @@ export default function Navbar() {
           </span>
         </a>
         <div className="navbar-dropdown is-right">
-          <Link href="/cart"><a className="navbar-item">Cart</a></Link>
-          <Link href="/my-orders"><a className="navbar-item">My Orders</a></Link>
-          <Link href="/payments"><a className="navbar-item">Payment Methods</a></Link>
           <Link href="/profile"><a className="navbar-item">Profile</a></Link>
-          {
-            profile.store ?
-              <>
-                <Link href={`/stores/${profile.store.id}`}><a className="navbar-item">View Your Store</a></Link>
-                <Link href="/products/new"><a className="navbar-item">Add a new Product</a></Link>
-              </>
-              :
-              <Link href="/stores/new"><a className="navbar-item">Interested in selling?</a></Link>
-          }
           <hr className="navbar-divider"></hr>
-          <a className="navbar-item" onClick={
-            () => {
-              localStorage.removeItem('token')
-              setIsLoggedIn(false)
-            }}
-          >
+          <a className="navbar-item" onClick={() => {
+            localStorage.removeItem('token');
+            setIsLoggedIn(false);
+            router.push('/login');
+          }}>
             Log out
           </a>
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   const getLoggedOutButtons = () => {
     return (
@@ -71,19 +60,15 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   return (
-
-    <nav className="navbar mb-3 is-warning px-5 is-fixed-top is-top" role="navigation" aria-label="main navigation">
+    <nav className="navbar mb-3 has-background-primary-light px-5 is-fixed-top is-top" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-
-          <Link href="/">
-            <img src="/images/logo.png" alt="Logo" style={{ width:"4rem", height: "4rem"}} className="relative" />
-          </Link>
-
-
+        <Link href="/">
+          <img src="/images/logo.png" alt="Logo" style={{ width: "4rem", height: "4rem" }} className="relative" />
+        </Link>
         <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" ref={hamburger} onClick={showMobileNavbar}>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -93,15 +78,20 @@ export default function Navbar() {
 
       <div className="navbar-menu" ref={navbar}>
         <div className="navbar-start">
-          <Link href="/products"><a className="navbar-item">Products</a></Link>
-          <Link href="/stores"><a className="navbar-item">Stores</a></Link>
+          {isLoggedIn && (
+            <>
+              <Link href="/game"><a className="navbar-item has-text-primary-dark">PLAY GAME</a></Link>
+              <Link href="/leaderboard"><a className="navbar-item has-text-primary-dark">LEADERBOARD</a></Link>
+              <Link href="/achievements"><a className="navbar-item has-text-primary-dark">ACHIEVEMENTS</a></Link>
+              <Link href="/feedback"><a className="navbar-item has-text-primary-dark">FEEDBACK</a></Link>
+              <Link href="/score"><a className="navbar-item has-text-primary-dark">MY SCORE</a></Link>
+            </>
+          )}
         </div>
         <div className="navbar-end">
-          {
-            isLoggedIn ? getLoggedInButtons() : getLoggedOutButtons()
-          }
+          {isLoggedIn ? getLoggedInButtons() : getLoggedOutButtons()}
         </div>
       </div>
     </nav>
-  )
+  );
 }

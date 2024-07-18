@@ -1,10 +1,10 @@
 import Layout from '../components/layout'
 import Navbar from '../components/navbar'
-import Products from './products'
+
 
 export default function Index() {
   return (
-    <Products />
+ <>ok</>
   )
 }
 
