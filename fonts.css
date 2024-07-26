@@ -1,0 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Orbitron:wght@400..900&display=swap');
+
+
+@font-face {
+    font-family: 'FishBones';
+    src: url('./public/fonts/FishBones.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }

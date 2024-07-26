@@ -1,0 +1,95 @@
+/* styles/navbar.module.css */
+.navbar {
+    background-color: #f0f0f000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 35;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbarBrand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .navbarMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .navbarStart {
+    display: flex;
+    align-items: center;
+  }
+  .navbarEnd {
+    display:flex-start;
+    padding-right: 5rem;
+  }
+  .navbarItem {
+    margin: 0 1rem;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .navbarItem:hover {
+    color: #007bff;
+  }
+  
+  .buttons {
+    display: flex;
+  }
+  
+  .button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 0.5rem;
+  }
+  
+  .primaryButton {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .lightButton {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .logoutButton {
+    background-color: #d9534f;
+    color: #fff;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+    color: #fff;
+  }
+  
+  .primaryButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .lightButton:hover {
+    background-color: #ddd;
+  }
+  
+  .logoutButton:hover {
+    background-color: #c9302c;
+  }
+  

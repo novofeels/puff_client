@@ -1,0 +1,100 @@
+.container {
+    display: flex;
+    flex-direction: column;
+   
+    
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    
+    z-index: 0;
+    
+  
+  }
+  
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    margin-top: 6rem;;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    
+    color: white;
+  }
+  
+  .title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px #000;
+  }
+  
+  .tableContainer {
+    width: 40%;
+    margin-top: 20px;
+  
+  }
+  
+  .table {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    
+  }
+  
+  .rank1 {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.8), rgba(255, 215, 0, 0.4));
+    font-weight: bold;
+  }
+  
+  .rank2 {
+    background: linear-gradient(90deg, rgba(192, 192, 192, 0.8), rgba(192, 192, 192, 0.4));
+    font-weight: bold;
+  }
+  
+  .rank3 {
+    background: linear-gradient(90deg, rgba(205, 127, 50, 0.8), rgba(205, 127, 50, 0.4));
+    font-weight: bold;
+  }
+  
+  .row {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Other styles */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 10px;
+    text-align: center;
+    
+  }
+  
+  .table th {
+    background-color: #ffffff;
+    color: black;
+    font-size: 20px;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #eaeaea;
+    color: black;
+  }
+  
