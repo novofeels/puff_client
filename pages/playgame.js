@@ -1,7 +1,7 @@
 import React from 'react';
 import { Unity, useUnityContext } from "react-unity-webgl";
 import Navbar from '../components/navbar';
-
+import styles from '../styles/playgame.module.css';
 
 const PlayGame = () => {
   const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
@@ -12,17 +12,18 @@ const PlayGame = () => {
   });
 
   return (
-    <div>
-      <Navbar /> {/* Add the Navbar component here */}
+    <div className={styles.container}>
+      <Navbar />
       {!isLoaded && (
         <p>Loading Game... {Math.round(loadingProgression * 100)}%</p>
       )}
-      <Unity 
+      <Unity
         unityProvider={unityProvider}
-        style={{ width: 1920, height: 1080}}
+        className={styles.unity}
       />
     </div>
   );
 };
 
 export default PlayGame;
+
