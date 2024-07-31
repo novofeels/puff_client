@@ -1,0 +1,284 @@
+.achievementsContainer {
+    display: flex;
+    flex-direction: column;
+   
+    
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    
+    z-index: 0;
+    animation: quickFadeIn 0.6s ease-in-out;
+  }
+  @keyframes quickFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: quickFadeIn 0.3s ease-in-out;
+}
+
+  .videoBackground {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+   overflow: hidden;
+  }
+  
+
+  .overlay {
+    position: absolute;
+    margin-top: 6rem;;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    
+    color: white;
+  }
+
+  .title {
+    position: relative;
+    display: inline-block;
+    color: white !important;
+    font-family: "Jersey 10";
+    text-align: center !important;
+    margin-top: 3rem !important;
+    font-size: 80px !important;
+  
+    animation: color-cycle-goldenrod-black4 1s ease forwards;
+    opacity: 0;
+}
+
+.title::before {
+    content: '';
+    position: absolute;
+    top: 90%;
+    left: 0;
+    width: 100%;
+    height: 5px; /* Adjust the height of the stripe */
+    background: rgb(93, 173, 216); /* Adjust the color and opacity of the stripe */
+    z-index: -1; /* Ensure the stripe is behind the text */
+    transform: translateY(-50%);
+    border-radius: 8px;
+    box-shadow: 0 0 15px 2px #49e6d8; /* Glowing effect on hover/focus */
+    animation: crtOn 0.8s ease forwards, crtFlicker 2s ease forwards;
+    
+   
+    opacity: 0;
+}
+
+
+  .cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .card {
+    background-color: #07070faf;
+    color: #fafad2; /* Parchment */
+    border: 3px solid #3007ff; /* Amber */
+    border-top: 3px solid #ddd;
+    border-left: 3px solid #ddd;
+    padding: 10px 20px;
+  
+    transition: all 0.3s;
+    font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
+    border-radius: 4px; /* Slightly rounded corners */
+    text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
+    font-weight: bold;
+    margin: 10px;
+    height: 350px;
+    width: 300px;
+    transition: transform all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Arial", sans-serif;
+    border-color: #000000; /* Amber for the border on hover/focus */
+    box-shadow: 0 0 6px 2px #0800ff8a,
+      /* Bright outer glow */ inset 0px 0px 3px 3px rgba(255, 255, 255, 0.3);
+  
+    border-radius: 8px; /* Slightly rounded corners can add to the antique look */
+  
+    border-radius: 50px;
+    border: 4px solid #ccc;
+    border-top: 3px solid #ccc;
+    animation: crtOn 0.8s ease forwards;
+    
+    opacity: 0;
+    background-image: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom right, #030518, #0c0935);
+    background-size: 3px 3px; /* Mimic CRT pixelation */
+    pointer-events: none;
+  }
+  
+  .card:hover,
+  .card:focus {
+    background-color: #1c1b3baf; /* Amber */
+    color: #ffffff; /* Dark Brown */
+    border-color: rgb(255, 255, 255); /* Amber for the border on hover/focus */
+    box-shadow: 0 0 15px 2px #49e6d8; /* Glowing effect on hover/focus */
+    transform: translateY(-5px) !important;
+    transition: transform all 0.3s ease-in-out;
+    transform: translateY(-5px) !important;
+    transition: transform all 0.3s ease-in-out !important;
+    background-image: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom right, #0a1150, #130f52);
+    background-size: 3px 3px; /* Mimic CRT pixelation */
+  }
+  
+  /* When the button is active, make it look like it's being pressed */
+  .card:active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+    transform: translateY(2px);
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease;
+  }
+  
+  .faded {
+    opacity: 0.3;
+  }
+  
+  .full-color {
+    opacity: 1;
+  }
+  
+  .card-content {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+
+  
+  .actions {
+    margin-top: 1rem;
+  }
+  
+  .button {
+    margin-top: 0.5rem;
+  }
+  
+  @keyframes crtOn {
+    0% {
+        pointer-events: none;
+      transform: scaleY(0.001) scaleX(0);
+      transform-origin: center;
+      opacity: 1;
+    }
+    50% {
+        pointer-events: none;
+      transform: scaleY(0.003) scaleX(0.8);
+      transform-origin: center;
+      opacity: 1;
+    }
+    100% {
+        pointer-events: all;
+      transform: scaleY(1) scaleX(1);
+      transform-origin: center;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes color-cycle-goldenrod-black4 {
+    0% {
+      opacity: 0;
+      color: rgb(22, 22, 22);
+      text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+        -2px 2px 0 rgb(218, 165, 32), 2px 2px 0 rgb(218, 165, 32); /* Deep yellow outline */
+    }
+    25% {
+        opacity: 0.2;
+      color: rgb(39, 39, 39);
+      text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+        -2px 2px 0 rgb(218, 165, 32), 2px 2px 0 rgb(218, 165, 32); /* Deep yellow outline */
+    }
+    50% {
+        opacity: 0.4;
+      text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+        -2px 2px 0 rgb(218, 165, 32), 2px 2px 0 rgb(218, 165, 32); /* Deep yellow outline */
+    }
+    69% {
+      opacity: 0.76;
+      text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+        -2px 2px 0 rgb(218, 165, 32), 2px 2px 1px rgb(218, 165, 32); /* Deep yellow outline */
+    }
+    70% {
+      opacity: 0.84;
+      text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+        -2px 2px 0 rgb(218, 165, 32), 2px 2px 2px rgb(218, 165, 32); /* Deep yellow outline */
+    }
+    75% {
+      opacity: .94;
+      color: rgb(201, 201, 201);
+      text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+        -1px 1px 0 rgb(218, 165, 32), 2px 2px 4px rgb(218, 165, 32); /* Deep yellow outline */
+    }
+    100% {
+      opacity: 1;
+      color: rgb(255, 255, 255);
+      text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+        -2px 2px 0 rgb(0, 0, 0), 2px 2px 8px rgb(218, 165, 32); /* Deep yellow outline */
+    }
+  }
+
+  @keyframes crtFlicker {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    10%,
+    20%,
+    30%,
+    40%,
+    50%,
+    60% {
+      opacity: 0.95;
+    }
+    15%,
+    35%,
+    55% {
+      opacity: 0.8;
+    }
+    14%,
+    19%,
+    29% {
+      opacity: 0.6;
+    }
+    25%,
+    45% {
+      opacity: 0.9;
+    }
+  }
+  
+ 

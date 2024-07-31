@@ -17,20 +17,23 @@ function Leaderboard() {
         <source src="/assets/scrolling_background.mp4" type="video/mp4" />
       </video>
       <div className={styles.overlay}>
-        <h1 className={styles.title}>Leaderboard</h1>
+        <h1 className={styles.title}>LEADERBOARD</h1>
         <div className={styles.tableContainer}>
           <table className={styles.table}>
             <thead>
               <tr>
-                <th>Rank</th>
-                <th>Username</th>
-                <th>Score</th>
-                <th>Date</th>
+                <th>RANK</th>
+                <th>USER</th>
+                <th>SCORE</th>
+                <th>DATE</th>
               </tr>
             </thead>
             <tbody>
               {scores.map((score, index) => (
-                <tr key={index} className={index < 3 ? styles[`rank${index + 1}`] : styles.row}>
+                <tr
+                  key={index}
+                  className={`${styles.card} ${index < 3 ? styles[`rank${index + 1}`] : styles.row}`}
+                >
                   <td>{index + 1}</td>
                   <td>{score.user}</td>
                   <td>{score.score}</td>
@@ -43,6 +46,7 @@ function Leaderboard() {
       </div>
     </div>
   );
+  
 }
 
 Leaderboard.getLayout = function getLayout(page) {

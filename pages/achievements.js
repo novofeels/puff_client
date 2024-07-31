@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import Layout from '../components/layout';
 import Navbar from '../components/navbar';
-
 import { createAchievement, deleteAchievement, getAchievements } from '../data/achievement';
+import styles from '../styles/achievements.module.css';
+import Image from 'next/dist/client/image';
 
 function Achievements() {
   const [achievements, setAchievements] = useState([]);
@@ -39,50 +40,46 @@ function Achievements() {
   };
 
   return (
-    <div>
-      <h1 className="title">Achievements</h1>
-      <div className="columns is-multiline">
+    <div className={styles.achievementsContainer}>
+      <video
+            id="backgroundVideo"
+            className={styles.videoBackground}
+            autoPlay
+            loop
+            muted
+          >
+            <source src="/assets/scrolling_background.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className={styles.overlay}>
+      <h1 className={styles.title}>ACHIEVEMENTS</h1>
+      <div className={styles.cardsContainer}>
         {achievements.map((achievement) => (
-          <div className="column is-one-third" key={achievement.id}>
-            <div className="card">
-              <div className="card-image">
-                <figure className="image is-4by3">
-                  <img src={achievement.badge_image} alt={achievement.description} />
-                </figure>
-              </div>
-              <div className="card-content">
-                <div className="media">
-                  <div className="media-content">
-                    <p className="title is-4">{achievement.description}</p>
-                  </div>
-                </div>
-                <div className="content">
-                  {achievement.achieved ? (
-                    <>
-                      <span className="tag is-success">Achieved</span>
-                      <button
-                        className="button is-danger mt-2"
-                        onClick={() => handleDelete(achievement.id)}
-                      >
-                        Delete Achievement
-                      </button>
-                    </>
-                  ) : (
-                    <button
-                      className="button is-primary mt-2"
-                      onClick={() => handleAchieve(achievement.id)}
-                    >
-                      I DID IT
-                    </button>
-                  )}
-                </div>
+          <div className={styles.card} key={achievement.id}>
+            <div className={styles.cardImage}>
+              <figure className={styles.image}>
+                <Image
+                  src="/assets/firstBlub.png"  // Static image path
+                  alt={achievement.description}
+                  className={achievement.achieved ? styles.fullColor : styles.faded}
+                  width={300}
+                  height={300}
+                />
+              </figure>
+            </div>
+            <div className={styles.cardContent}>
+              <p className={styles.cardTitle}>{achievement.description}</p>  {/* Dynamic description */}
+              <div className={styles.actions}>
+                
               </div>
             </div>
           </div>
         ))}
       </div>
+      </div>
     </div>
   );
+  
 }
 
 Achievements.getLayout = function getLayout(page) {
@@ -95,3 +92,4 @@ Achievements.getLayout = function getLayout(page) {
 };
 
 export default Achievements;
+
