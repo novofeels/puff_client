@@ -38,7 +38,7 @@ export default function Navbar() {
               <Link href="/leaderboard"><a className={styles.navbarItem}>LEADERBOARD</a></Link>
               <Link href="/achievements"><a className={styles.navbarItem}>ACHIEVEMENTS</a></Link>
               <Link href="/feedback"><a className={styles.navbarItem}>FEEDBACK</a></Link>
-              <Link href="/score"><a className={styles.navbarItem}>MY SCORE</a></Link>
+              
             </>
           )}
         </div>

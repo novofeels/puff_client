@@ -1,10 +1,12 @@
 .container {
   display: flex;
   flex-direction: column;
+  max-height: 100vh;
+  max-width: 100vw;
   height: 100vh;
   width: 100vw;
   position: relative;
- 
+  
   font-family: 'Arial', sans-serif;
   z-index: 0;
   animation: quickFadeIn 0.6s ease-in-out;
@@ -39,7 +41,7 @@
 
 .title {
   position: relative;
-  display: inline-block;
+ 
   color: white !important;
   font-family: "Jersey 10";
   text-align: center !important;
@@ -47,6 +49,7 @@
   font-size: 80px !important;
   animation: color-cycle-goldenrod-black4 1s ease forwards;
   opacity: 0;
+  margin: 0;
 }
 .title::before {
   content: '';
@@ -55,25 +58,59 @@
   left: 0;
   width: 100%;
   height: 5px; /* Adjust the height of the stripe */
-  background: rgb(93, 173, 216); /* Adjust the color and opacity of the stripe */
-  z-index: -1; /* Ensure the stripe is behind the text */
+  background: rgb(132, 212, 255); /* Adjust the color and opacity of the stripe */
+  z-index: 10; /* Ensure the stripe is behind the text */
   transform: translateY(-50%);
   border-radius: 8px;
-  box-shadow: 0 0 15px 2px #49e6d8; /* Glowing effect on hover/focus */
+  box-shadow: 2px 2px 15px 4px #8eddff; /* Glowing effect on hover/focus */
   animation: crtOn 0.8s ease forwards, crtFlicker 3s ease forwards;
     
    
   opacity: 0;
 }
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0rem;
+
+}
+.instructions {
+  font-family: 'Jersey 10';
+  font-size: 30px;
+  text-align: center;
+  
 
 
-.tableContainer {
-  width: 40%;
-  margin-top: 20px;
 }
 
-.table {
-  width: 100%;
+.message {
+  font-family: 'Jersey 10';
+  font-size: 30px;
+  text-align: center;
+  
+  color: white;
+  transition: ease-in-out 0.3s;
+  animation: color-cycle-goldenrod-black4 1s ease forwards;
+}
+
+.submitButton{
+  font-family: 'Jersey 10';
+  font-size: 20px;
+  text-align: center;
+  margin-top: 1rem;
+  color: white;
+  background-color: #000000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.textarea{
+  width: 15rem;
+  height: 15rem;
   border-collapse: separate;
   background-image: radial-gradient(
     circle,
@@ -92,86 +129,17 @@ border-color: #000000; /* Amber for the border on hover/focus */
     border: 4px solid #ccc;
     border-top: 3px solid #ccc;
     animation: crtOn 0.8s ease forwards;
-}
-
-.table th, .table td {
   
-  padding: 10px;
-  text-align: center;
-  border-radius: 4px;
-}
-.table td {
-  opacity: 0;
-  animation: quickFadeIn 2s ease forwards;
-  animation-delay: 0.8s;
+    font-family: 'Jersey 10';
+    padding: 10px;
+    color: #ffffff;
+    font-size: 17px;
+    opacity: 0;
 }
 
-.table th {
-  background-color: #ffffff00;
-  color: rgba(255, 255, 255, 0.735);
-  font-size: 30px;
-  font-family: 'Jersey 10';
-  opacity: 0;
-  animation: color-cycle-goldenrod-black4 1s ease forwards;
-}
 
-.table tbody tr {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
 
-.table tbody tr:hover {
-  background-color: #eaeaea4d;
-  color: black;
-}
 
-.rank1, .rank2, .rank3 {
-  background: rgba(0, 0, 0, 0.5);
-  border: 3px solid #000;
-  border-radius: 8px;
-  color: #fafad2;
-  font-weight: bold;
-
-  
-}
-
-.rank1 {
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7), inset 0 0 10px rgb(255, 233, 106);
-  background: linear-gradient(90deg, rgba(255, 217, 0, 0.406), rgba(255, 215, 0, 0.4));
-  font-weight: bold;
-  opacity: 0;
-  animation: colorFlashGold 2s ease-in-out forwards;
-  animation-delay: 2s;
-
- 
-}
-
-.rank2 {
-  box-shadow: 0 0 10px rgba(192, 192, 192, 0.566), inset 0 0 10px rgb(192, 192, 192);
-  background: linear-gradient(90deg, rgba(192, 192, 192, 0.566), rgba(192, 192, 192, 0.4));
-  left: -100%;
-  font-weight: bold;
-  animation: colorFlashSilver 2s ease-in-out forwards;
-  animation-delay: 1.5s;
-  opacity: 0;
-}
-
-.rank3 {
-  animation: colorFlashBronze 2s ease-in-out forwards;
-  animation-delay: 1s;
-  box-shadow: 0 0 10px rgba(205, 128, 50, 0.384), inset 0 0 10px rgb(205, 127, 50, 0.4);
-  background: linear-gradient(90deg, rgba(205, 128, 50, 0.384), rgba(205, 127, 50, 0.4));
-  font-weight: bold;
-  opacity: 0;
-}
-
-.row {
-  background-color: rgba(255, 255, 255, 0.413);
-  border: 1px dotted #ffffff;
-  color: #fafad2;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
 @keyframes crtOn {
   0% {
@@ -236,66 +204,7 @@ border-color: #000000; /* Amber for the border on hover/focus */
   }
 }
 
-@keyframes colorFlashGold {
-  0% {
-    opacity: 0;
-    background: linear-gradient(90deg, rgba(255, 217, 0, 0.406), rgba(255, 215, 0, 0.4));
-  }
-  50% {
-    opacity: 1;
-    background-color: rgb(255, 217, 0); /* Gold flash */
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-    background-color: linear-gradient(90deg, rgba(255, 215, 0, 0.8), rgba(255, 215, 0, 0.4));
-  }
-}
 
-
-@keyframes gradientWipe {
-  from {
-    left: -100%; /* Starts hidden to the left */
-  }
-  to {
-    left: 100%; /* Ends moved out to the right, revealing the content */
-  }
-}
-
-@keyframes colorFlashSilver {
-  0% {
-    opacity: 0;
-    background: linear-gradient(90deg, rgba(192, 192, 192, 0.406), rgba(192, 192, 192, 0.4));
-  }
-  50% {
-    opacity: 1;
-    background-color: rgb(192, 192, 192); /* Silver flash */
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-    background-color: linear-gradient(90deg, rgba(192, 192, 192, 0.8), rgba(192, 192, 192, 0.4));
-  }
-}
-
-@keyframes colorFlashBronze {
-  0% {
-    opacity: 0;
-    background: linear-gradient(90deg, rgba(205, 127, 50, 0.406), rgba(205, 127, 50, 0.4));
-  }
-  50% {
-    opacity: 1;
-    background-color: rgb(205, 127, 50); /* Bronze flash */
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-    background-color: linear-gradient(90deg, rgba(205, 127, 50, 0.8), rgba(205, 127, 50, 0.4));
-  }
-}
 
 @keyframes crtFlicker {
   0%,
@@ -326,3 +235,65 @@ border-color: #000000; /* Amber for the border on hover/focus */
   }
 }
 
+.hiddenbutton {
+animation: crtOff 0.8s ease forwards;
+  font-family: 'Jersey 10';
+  font-size: 20px;
+  text-align: center;
+  margin-top: 1rem;
+  color: white;
+  background-color: #000000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.hiddentext {
+  width: 15rem;
+  height: 15rem;
+  border-collapse: separate;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  ),
+  linear-gradient(to bottom right, #030518, #0c0935);
+background-size: 3px 3px; /* Mimic CRT pixelation */
+border-color: #000000; /* Amber for the border on hover/focus */
+    box-shadow: 0 0 6px 2px #fff2628a,
+      /* Bright outer glow */ inset 0px 0px 3px 3px rgba(255, 255, 255, 0.3);
+  
+    border-radius: 8px; /* Slightly rounded corners can add to the antique look */
+  
+    border-radius: 20px;
+    border: 4px solid #ccc;
+    border-top: 3px solid #ccc;
+    animation: crtOff 0.8s ease-in-out forwards;
+  
+    font-family: 'Jersey 10';
+    padding: 10px;
+    color: #ffffff;
+    font-size: 17px;
+    opacity: 0;
+ 
+}
+
+@keyframes crtOff {
+  0% {
+    transform: scaleY(1) scaleX(1);
+    transform-origin: center;
+  }
+  50% {
+    transform: scaleY(0.003) scaleX(0.8);
+    transform-origin: center;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0.0001) scaleX(0);
+    transform-origin: center;
+    opacity: 1;
+  }
+}

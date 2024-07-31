@@ -20,6 +20,7 @@
   .logo {
     width: 4rem;
     height: 4rem;
+    margin-right: 1rem;
   }
   
   .navbarMenu {
@@ -38,6 +39,7 @@
     padding-right: 5rem;
   }
   .navbarItem {
+    font-family: "Jersey 10";
     margin: 0 1rem;
     color: #333;
     text-decoration: none;
@@ -45,7 +47,7 @@
   }
   
   .navbarItem:hover {
-    color: #007bff;
+    color: #ffffff;
   }
   
   .buttons {
@@ -72,8 +74,9 @@
   }
   
   .logoutButton {
-    background-color: #d9534f;
+    background-color: #5e0a07;
     color: #fff;
+    font-family: "Jersey 10";
   }
   
   .button:hover {
@@ -90,6 +93,42 @@
   }
   
   .logoutButton:hover {
-    background-color: #c9302c;
+    background-color: #972420;
+    animation: shake 1s infinite;
   }
   
+  @keyframes shake {
+    0% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+      transform: translate(-1px, -1px) rotate(-1deg);
+    }
+    20% {
+      transform: translate(-1px, 0px) rotate(1deg);
+    }
+    30% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+      transform: translate(-1px, 0px) rotate(-1deg);
+    }
+    60% {
+      transform: translate(-1px, 0px) rotate(0deg);
+    }
+    70% {
+      transform: translate(1px, -1px) rotate(-1deg);
+    }
+    80% {
+      transform: translate(-1px, 0px) rotate(1deg);
+    }
+    90% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+    100% {
+      transform: translate(1px, 0px) rotate(-1deg);
+    }
+  }
