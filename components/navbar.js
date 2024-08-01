@@ -46,16 +46,7 @@ export default function Navbar() {
           {isLoggedIn ? (
             <button className={`${styles.button} ${styles.logoutButton}`} onClick={handleLogout}>Log out</button>
           ) : (
-            <div className={styles.buttons}>
-              <Link href="/register">
-                <a className={`${styles.button} ${styles.primaryButton}`}>
-                  <strong>Sign up</strong>
-                </a>
-              </Link>
-              <Link href="/login">
-                <a className={`${styles.button} ${styles.lightButton}`}>Log in</a>
-              </Link>
-            </div>
+            <></>
           )}
         </div>
       </div>

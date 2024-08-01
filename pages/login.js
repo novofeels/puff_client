@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Layout from '../components/layout';
 import Navbar from '../components/navbar';
 import { useAppContext } from '../context/state';
-import { login } from '../data/auth';
+import { login, register } from '../data/auth'; // Make sure to implement register function in your data/auth module
 import styles from '../styles/login.module.css';
 import Image from 'next/image';
 
@@ -12,7 +12,9 @@ export default function Login() {
   const { setToken } = useAppContext();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isSwitchOn, setIsSwitchOn] = useState(false);
+  const [isRegister, setIsRegister] = useState(false);
   const router = useRouter();
 
   // Create an audio instance
@@ -22,12 +24,8 @@ export default function Login() {
     if (switchSound) {
       switchSound.play();
     }
-    if (isSwitchOn){
-      setIsSwitchOn(false);
-
-    }
-    else {
-    setIsSwitchOn(true);}
+    setIsSwitchOn(!isSwitchOn);
+    setIsRegister(false);
   };
 
   useEffect(() => {
@@ -45,12 +43,25 @@ export default function Login() {
       password,
     };
 
-    login(user).then((res) => {
-      if (res.token) {
-        setToken(res.token);
-        router.push('/');
+    if (isRegister) {
+      if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return;
       }
-    });
+      register(user).then((res) => {
+        if (res.token) {
+          setToken(res.token);
+          router.push('/');
+        }
+      });
+    } else {
+      login(user).then((res) => {
+        if (res.token) {
+          setToken(res.token);
+          router.push('/');
+        }
+      });
+    }
   };
 
   return (
@@ -100,11 +111,32 @@ export default function Login() {
                     required
                   />
                 </div>
-                <div>
-                  <button className={styles.funButton} type="submit">
-                    Sign in
+                {isRegister && (
+                  <div>
+                    <input
+                      type="password"
+                      className={styles.authInput2}
+                      onChange={(evt) => setConfirmPassword(evt.target.value)}
+                      placeholder="Confirm Password"
+                      required
+                    />
+                  </div>
+                )}
+                <button className={styles.funButton} type="submit">
+                    {isRegister ? 'Register' : 'Sign in'}
                   </button>
-                </div>
+                <div className={styles.bottomContainer}>
+                  
+                  <div className={styles.registerText}>
+                    {isRegister ? 'Already have an account?' : "Don't have an account?"}</div>
+                    <span
+                      className={styles.registerLink} 
+                      onClick={() => setIsRegister(!isRegister)}
+                    >
+                      {isRegister ? 'SIGN IN' : 'REGISTER'}
+                    </span>
+                  </div>
+                
               </form>
             </section>
           </main>
@@ -121,4 +153,4 @@ Login.getLayout = function getLayout(page) {
       {page}
     </Layout>
   );
-}
+};
