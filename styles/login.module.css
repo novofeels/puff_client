@@ -13,6 +13,19 @@
   
 
 }
+.authenticatedContainer {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  z-index: 0;
+  animation: quickFadeIn 0.2s ease forwards;
+}
 
 .videoBackground {
   position: absolute;
@@ -23,7 +36,16 @@
   object-fit: cover;
  
 }
+.authenticatedVideoBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: quickFadeOut 4s ease forwards;
 
+}
 .header699 {
   color: goldenrod;
   text-transform: uppercase;
@@ -42,6 +64,274 @@
 
     
 }
+
+.authenticatedHeader699 {
+  color: goldenrod;
+  text-transform: uppercase;
+  font-family: "FishBones";
+  justify-content: center !important;
+  text-align: center !important;
+
+  font-size: 8rem !important;
+  margin-bottom: 0px;
+
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff; /* Creates a white outline */
+  animation: quickFadeOut 0.8s ease forwards;
+ 
+
+
+}
+
+
+
+
+.authInput {
+  font-family: "Jersey 10", sans-serif;
+  padding: 10px;
+
+  border: 2px solid #fff; /* White border */
+  border-radius: 5px;
+  margin-bottom: 5px; /* Space between search input and suggestions */
+  background: #000; /* Dark background */
+  color: #ffffff; /* Gold text, typical of old monitors */
+  text-transform: uppercase;
+  font-size: 20px; /* Larger text to emulate old game displays */
+  box-shadow: 0 0 5px rgb(255, 255, 255); /* Gold-like glow */
+  outline: none; /* Removes the default focus outline */
+  margin-top: 0px;
+  opacity: 0;
+  animation: crtOn 1.2s forwards;
+  animation-delay: 2s;
+  
+}
+
+.authenticatedAuthInput {
+  font-family: "Jersey 10", sans-serif;
+  padding: 10px;
+
+  border: 2px solid #fff; /* White border */
+  border-radius: 5px;
+  margin-bottom: 5px; /* Space between search input and suggestions */
+  background: #000; /* Dark background */
+  color: #ffffff; /* Gold text, typical of old monitors */
+  text-transform: uppercase;
+  font-size: 20px; /* Larger text to emulate old game displays */
+  box-shadow: 0 0 5px rgb(255, 255, 255); /* Gold-like glow */
+  outline: none; /* Removes the default focus outline */
+  margin-top: 0px;
+
+  animation: crtOff 0.8s ease forwards;
+  
+}
+
+.authInput2 {
+  font-family: "Jersey 10", sans-serif;
+  padding: 10px;
+
+  border: 2px solid #fff; /* White border */
+  border-radius: 5px;
+  margin-bottom: 5px; /* Space between search input and suggestions */
+  background: #000; /* Dark background */
+  color: #ffffff; /* Gold text, typical of old monitors */
+  text-transform: uppercase;
+  font-size: 20px; /* Larger text to emulate old game displays */
+  box-shadow: 0 0 5px rgb(255, 255, 255); /* Gold-like glow */
+  outline: none; /* Removes the default focus outline */
+  margin-top: 0px;
+  opacity: 0;
+  animation: crtOn 1.2s forwards;
+
+  
+}
+.authenticatedAuthInput2{
+  font-family: "Jersey 10", sans-serif;
+  padding: 10px;
+
+  border: 2px solid #fff; /* White border */
+  border-radius: 5px;
+  margin-bottom: 5px; /* Space between search input and suggestions */
+  background: #000; /* Dark background */
+  color: #ffffff; /* Gold text, typical of old monitors */
+  text-transform: uppercase;
+  font-size: 20px; /* Larger text to emulate old game displays */
+  box-shadow: 0 0 5px rgb(255, 255, 255); /* Gold-like glow */
+  outline: none; /* Removes the default focus outline */
+  margin-top: 0px;
+
+  animation: crtOff 0.8s ease forwards;
+
+}
+.authForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+}
+.authenticatedAuthForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.funButton {
+  
+  font-family: 'Jersey 10';
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: white;
+  background-color: #0a8e9375;
+ 
+ 
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px; /* Slightly rounded corners can add to the antique look */
+  
+  
+  border: 2px solid #ccc;
+  border-top: 2px solid #ccc;
+  
+    box-shadow: 0 0 6px 2px #046ea2,
+      /* Bright outer glow */ inset 0px 0px 3px 3px rgba(255, 255, 255, 0.3);
+
+  opacity: 0;
+  animation: stretchFadeIn 3s ease forwards;
+  animation-delay: 2s;
+}
+
+.authenticatedFunButton {
+
+    
+  font-family: 'Jersey 10';
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: white;
+  background-color: #0a8e9375;
+ 
+ 
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px; /* Slightly rounded corners can add to the antique look */
+  
+  
+  border: 2px solid #ccc;
+  border-top: 2px solid #ccc;
+  
+    box-shadow: 0 0 6px 2px #046ea2,
+      /* Bright outer glow */ inset 0px 0px 3px 3px rgba(255, 255, 255, 0.3);
+
+  animation: quickFadeOut 0.8s ease forwards;
+
+}
+
+
+
+.funButton:hover,
+.funButton:focus {
+  border-color: #000000; /* Amber for the border on hover/focus */
+  transform: translateY(-2px);
+  transition: transform all 0.3s ease-in-out !important;
+  background-color: #1c1b3baf; /* Amber */
+
+  
+}
+
+/* When the button is active, make it look like it's being pressed */
+.funButton:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px);
+}
+
+
+.switchContainer {
+  position: absolute;
+  top:125px;
+  left: 20px;
+  z-index: 10; /* Make sure the switch is on top */
+}
+
+.authenticatedSwitchContainer {
+  position: absolute;
+  top:125px;
+  left: 20px;
+  z-index: 10; /* Make sure the switch is on top */
+  animation: quickFadeOut 0.8s ease forwards;
+}
+
+.switch {
+  cursor: pointer;
+  z-index: 10;
+  animation: stretchFadeIn 3s ease forwards, pulse2 2.5s infinite;
+}
+
+.registerText {
+  z-index: 100;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  animation: stretchFadeIn 3s ease forwards;
+  animation-delay: 2s;
+  opacity: 0;
+}
+
+.registerLink {
+ z-index: 100;
+ animation: stretchFadeIn 3s ease forwards, pulse2 3s infinite;
+ animation-delay: 2s;
+ opacity: 0;
+ color: white;
+ font-family: 'Courier New', Courier, monospace;
+ margin: 1rem;
+ 
+}
+
+.registerLink:hover {
+  z-index: 100;
+  color: rgb(0, 255, 255);
+  cursor: pointer;
+  text-decoration: underline;
+ }
+.bottomContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+  animation-delay: 2s;
+  opacity: 1;
+}
+
+.authenticatedBottomContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  animation: quickFadeOut 0.8s ease forwards;
+ 
+  opacity: 1;
+}
+
+@keyframes pulse2 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05); /* Slight scale increase */
+  }
+}
+
 @keyframes color-cycle-goldenrod-black4 {
   0% {
     
@@ -82,84 +372,6 @@
   }
 }
 
-.authInput {
-  font-family: "Jersey 10", sans-serif;
-  padding: 10px;
-
-  border: 2px solid #fff; /* White border */
-  border-radius: 5px;
-  margin-bottom: 5px; /* Space between search input and suggestions */
-  background: #000; /* Dark background */
-  color: #ffffff; /* Gold text, typical of old monitors */
-  text-transform: uppercase;
-  font-size: 20px; /* Larger text to emulate old game displays */
-  box-shadow: 0 0 5px rgb(255, 255, 255); /* Gold-like glow */
-  outline: none; /* Removes the default focus outline */
-  margin-top: 0px;
-  opacity: 0;
-  animation: crtOn 1.2s forwards;
-  animation-delay: 2s;
-  
-}
-
-
-.authForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-
-}
-@keyframes crtOn {
-  0% {
-    transform: scaleY(0.1) scaleX(0);
-    transform-origin: center;
-    opacity: 1;
-  }
-  50% {
-    transform: scaleY(0.003) scaleX(0.8);
-    transform-origin: center;
-    opacity: 1;
-  }
-  100% {
-    transform: scaleY(1) scaleX(1);
-    transform-origin: center;
-    opacity: 1;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-.funButton {
-  background-color: #88690c; /* Chocolate */
-  color: #fafad2; /* Parchment */
-  border: 2px solid rgb(214, 164, 38); /* Dark Brown */
-  padding: 10px 20px;
- 
-  transition: all 0.3s;
-  font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
-  border-radius: 4px; /* Slightly rounded corners */
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2),
-    /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
-  text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
-  font-weight: bold;
-  margin: 10px;
-
-  opacity: 0;
-  animation: stretchFadeIn 3s ease forwards;
-  animation-delay: 2s;
-}
-
 @keyframes pulse {
   0%,
   100% {
@@ -182,41 +394,46 @@
   }
 }
 
-.funButton:hover,
-.funButton:focus {
-  background-color: black; /* Amber */
-  color: #ffbf00; /* Dark Brown */
-  border-color: #d4ca33; /* Amber for the border on hover/focus */
-  box-shadow: 0 0 80px #ffbf00; /* Glowing effect on hover/focus */
-  
-}
-
-/* When the button is active, make it look like it's being pressed */
-.funButton:active {
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
-  transform: translateY(2px);
-}
-
-
-.switchContainer {
-  position: absolute;
-  top:125px;
-  left: 20px;
-  z-index: 10; /* Make sure the switch is on top */
-}
-
-.switch {
-  cursor: pointer;
-  z-index: 10;
-  animation: stretchFadeIn 3s ease forwards, pulse2 2.5s infinite;
-}
-
-@keyframes pulse2 {
-  0%,
-  100% {
-    transform: scale(1);
+@keyframes crtOn {
+  0% {
+    transform: scaleY(0.1) scaleX(0);
+    transform-origin: center;
+    opacity: 1;
   }
   50% {
-    transform: scale(1.05); /* Slight scale increase */
+    transform: scaleY(0.003) scaleX(0.8);
+    transform-origin: center;
+    opacity: 1;
   }
+  100% {
+    transform: scaleY(1) scaleX(1);
+    transform-origin: center;
+    opacity: 1;
+  }
+}
+
+@keyframes crtOff {
+  0% {
+    transform: scaleY(1) scaleX(1);
+    transform-origin: center;
+  }
+  50% {
+    transform: scaleY(0.003) scaleX(0.8);
+    transform-origin: center;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0.0001) scaleX(0);
+    transform-origin: center;
+    opacity: 1;
+  }
+}
+
+@keyframes quickFadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes quickFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
