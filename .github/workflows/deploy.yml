@@ -36,9 +36,6 @@ jobs:
       - name: Build
         run: npm run build  # Build the Next.js application
 
-      - name: Export Static Site
-        run: npm run export  # Export static files
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3  # Upload the static files
         with:
@@ -47,4 +44,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4  # Deploy the static files to GitHub Pages
+
 
