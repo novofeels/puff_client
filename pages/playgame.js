@@ -7,10 +7,10 @@ import { useAppContext } from '../context/state';
 const PlayGame = () => {
   const { token, setToken } = useAppContext();
   const unityContext = useUnityContext({
-    loaderUrl: "/unity/Build/Builds.loader.js",
-    dataUrl: "/unity/Build/Builds.data",
-    frameworkUrl: "/unity/Build/Builds.framework.js",
-    codeUrl: "/unity/Build/Builds.wasm",
+    loaderUrl: "/puff_client/unity/Build/Builds.loader.js",
+    dataUrl: "/puff_client/unity/Build/Builds.data",
+    frameworkUrl: "/puff_client/unity/Build/Builds.framework.js",
+    codeUrl: "/puff_client/unity/Build/Builds.wasm",
   });
 
   const { unityProvider, isLoaded, loadingProgression, sendMessage } = unityContext;
