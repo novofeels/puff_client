@@ -10,6 +10,7 @@ import { register } from '../data/auth';
 export default function Register() {
   const { setToken } = useAppContext();
   const [email, setEmail] = useState('');
+  const [nothing, setNothing] = useState('');
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
