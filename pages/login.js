@@ -6,7 +6,6 @@ import Navbar from '../components/navbar';
 import { useAppContext } from '../context/state';
 import { login, register } from '../data/auth'; // Make sure to implement register function in your data/auth module
 import styles from '../styles/login.module.css';
-import Image from 'next/image';
 
 export default function Login() {
   const { setToken } = useAppContext();
@@ -83,7 +82,7 @@ export default function Login() {
   return (
     <div className={isAuthenticated ? styles.authenticatedContainer : styles.container}>
       <div className={isAuthenticated ? styles.authenticatedSwitchContainer : styles.switchContainer}>
-        <Image
+        <img
           src={isSwitchOn ? '/assets/switchOn.png' : '/assets/switchOff.png'}
           alt="Light Switch"
           className={isAuthenticated ? styles.authenticatedSwitch : styles.switch}

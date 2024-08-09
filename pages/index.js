@@ -2,7 +2,7 @@ import Layout from '../components/layout';
 import Navbar from '../components/navbar';
 import styles from '../styles/index.module.css';
 
-import Image from 'next/image';
+
 import { useEffect, useState } from 'react';
 
 export default function Index() {
@@ -129,7 +129,7 @@ export default function Index() {
 
   return (
     <div className={styles.container4welcome}>
-      <Image
+      <img
         src={'/assets/puffSwim.gif'}
         alt="puff"
         className={styles.puffGif}

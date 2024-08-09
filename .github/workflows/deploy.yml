@@ -1,0 +1,45 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: ['main']  # Runs the workflow on pushes to the main branch
+  workflow_dispatch:  # Allows you to manually trigger the workflow from GitHub Actions tab
+
+permissions:
+  contents: read  # Read permissions for repository contents
+  pages: write  # Write permissions to deploy to GitHub Pages
+  id-token: write  # Write permissions for GitHub Pages deployments
+
+concurrency:
+  group: 'pages'  # Ensure only one deployment is in progress at a time
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages  # The environment to deploy to
+      url: ${{ steps.deployment.outputs.page_url }}  # URL of the deployed site
+    runs-on: ubuntu-latest  # Run the job on the latest Ubuntu runner
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4  # Check out the repository code
+      - name: Set up Node
+        uses: actions/setup-node@v4  # Set up Node.js
+        with:
+          node-version: 20  # Specify the Node.js version
+          cache: 'npm'  # Cache npm dependencies
+      - name: Install dependencies
+        run: npm ci  # Install dependencies from package-lock.json
+      - name: Build
+        run: npm run build  # Build the Next.js application
+      - name: Export Static Site
+        run: npm run export  # Export static files for GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4  # Configure the GitHub Pages deployment
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3  # Upload the static files
+        with:
+          path: './out'  # Path to the exported static files
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4  # Deploy the static files to GitHub Pages

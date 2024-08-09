@@ -52,7 +52,7 @@ function Leaderboard() {
               </tr>
             </thead>
             <tbody>
-              {scores.map((score, index) => (
+              {scores?.map((score, index) => (
                 <tr
                   key={index}
                   className={`${styles.card} ${index < 3 ? styles[`rank${index + 1}`] : styles.row}`}

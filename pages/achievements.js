@@ -3,7 +3,7 @@ import Layout from '../components/layout';
 import Navbar from '../components/navbar';
 import { createAchievement, deleteAchievement, getAchievements } from '../data/achievement';
 import styles from '../styles/achievements.module.css';
-import Image from 'next/dist/client/image';
+
 
 function Achievements() {
   const [achievements, setAchievements] = useState([]);
@@ -80,7 +80,7 @@ function Achievements() {
           <div className={styles.card} key={achievement.id}>
             <div className={styles.cardImage}>
               <figure className={styles.image}>
-                <Image
+                <img
                   src="/assets/firstBlub.png"  // Static image path
                   alt={achievement.description}
                   className={achievement.achieved ? styles.fullColor : styles.faded}
