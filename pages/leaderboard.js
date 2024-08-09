@@ -7,10 +7,10 @@ import styles from '../styles/leaderboard.module.css';
 function Leaderboard() {
   const [scores, setScores] = useState([]);
 
-  const ambience = typeof Audio !== "undefined" && new Audio('/assets/ambience.mp3');
+  const ambience = typeof Audio !== "undefined" && new Audio('/puff_client/assets/ambience.mp3');
 
   useEffect(() => {
-    
+    ambience.volume = 0.2;
     ambience.play();
     return () => {
       // Function to gradually decrease the volume
@@ -37,7 +37,7 @@ function Leaderboard() {
   return (
     <div className={styles.container}>
       <video autoPlay loop muted className={styles.video}>
-        <source src="/assets/scrolling_background.mp4" type="video/mp4" />
+        <source src="/puff_client/assets/scrolling_background.mp4" type="video/mp4" />
       </video>
       <div className={styles.overlay}>
         <h1 className={styles.title}>LEADERBOARD</h1>

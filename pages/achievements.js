@@ -7,10 +7,10 @@ import styles from '../styles/achievements.module.css';
 
 function Achievements() {
   const [achievements, setAchievements] = useState([]);
-  const ambience = typeof Audio !== "undefined" && new Audio('/assets/ambience.mp3');
+  const ambience = typeof Audio !== "undefined" && new Audio('/puff_client/assets/ambience.mp3');
 
   useEffect(() => {
-    
+    ambience.volume = 0.2;
     ambience.play();
     return () => {
       // Function to gradually decrease the volume
@@ -70,7 +70,7 @@ function Achievements() {
             loop
             muted
           >
-            <source src="puff_client/assets/scrolling_background.mp4" type="video/mp4" />
+            <source src="/puff_client/assets/scrolling_background.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className={styles.overlay}>
