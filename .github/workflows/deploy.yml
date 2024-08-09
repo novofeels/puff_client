@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy Next.js to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -39,13 +39,17 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Export static site
+        run: npm run export
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          build-directory: './out' # Update to the directory where Next.js outputs static files
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist folder
-          path: './dist'
+          path: './out' # Ensure this matches the build output directory
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
