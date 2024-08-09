@@ -13,6 +13,19 @@
   
 
 }
+.authenticatedContainer {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  z-index: 0;
+  animation: quickFadeIn 0.2s ease forwards;
+}
 
 .videoBackground {
   position: absolute;
@@ -23,7 +36,16 @@
   object-fit: cover;
  
 }
+.authenticatedVideoBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: quickFadeOut 4s ease forwards;
 
+}
 .header699 {
   color: goldenrod;
   text-transform: uppercase;
@@ -42,6 +64,26 @@
 
     
 }
+
+.authenticatedHeader699 {
+  color: goldenrod;
+  text-transform: uppercase;
+  font-family: "FishBones";
+  justify-content: center !important;
+  text-align: center !important;
+
+  font-size: 8rem !important;
+  margin-bottom: 0px;
+
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff; /* Creates a white outline */
+  animation: quickFadeOut 0.8s ease forwards;
+ 
+
+
+}
+
+
 
 
 .authInput {
@@ -64,6 +106,25 @@
   
 }
 
+.authenticatedAuthInput {
+  font-family: "Jersey 10", sans-serif;
+  padding: 10px;
+
+  border: 2px solid #fff; /* White border */
+  border-radius: 5px;
+  margin-bottom: 5px; /* Space between search input and suggestions */
+  background: #000; /* Dark background */
+  color: #ffffff; /* Gold text, typical of old monitors */
+  text-transform: uppercase;
+  font-size: 20px; /* Larger text to emulate old game displays */
+  box-shadow: 0 0 5px rgb(255, 255, 255); /* Gold-like glow */
+  outline: none; /* Removes the default focus outline */
+  margin-top: 0px;
+
+  animation: crtOff 0.8s ease forwards;
+  
+}
+
 .authInput2 {
   font-family: "Jersey 10", sans-serif;
   padding: 10px;
@@ -83,13 +144,37 @@
 
   
 }
+.authenticatedAuthInput2{
+  font-family: "Jersey 10", sans-serif;
+  padding: 10px;
 
+  border: 2px solid #fff; /* White border */
+  border-radius: 5px;
+  margin-bottom: 5px; /* Space between search input and suggestions */
+  background: #000; /* Dark background */
+  color: #ffffff; /* Gold text, typical of old monitors */
+  text-transform: uppercase;
+  font-size: 20px; /* Larger text to emulate old game displays */
+  box-shadow: 0 0 5px rgb(255, 255, 255); /* Gold-like glow */
+  outline: none; /* Removes the default focus outline */
+  margin-top: 0px;
+
+  animation: crtOff 0.8s ease forwards;
+
+}
 .authForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
+
+}
+.authenticatedAuthForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
 }
 
@@ -122,6 +207,35 @@
   animation-delay: 2s;
 }
 
+.authenticatedFunButton {
+
+    
+  font-family: 'Jersey 10';
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: white;
+  background-color: #0a8e9375;
+ 
+ 
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px; /* Slightly rounded corners can add to the antique look */
+  
+  
+  border: 2px solid #ccc;
+  border-top: 2px solid #ccc;
+  
+    box-shadow: 0 0 6px 2px #046ea2,
+      /* Bright outer glow */ inset 0px 0px 3px 3px rgba(255, 255, 255, 0.3);
+
+  animation: quickFadeOut 0.8s ease forwards;
+
+}
+
 
 
 .funButton:hover,
@@ -146,6 +260,14 @@
   top:125px;
   left: 20px;
   z-index: 10; /* Make sure the switch is on top */
+}
+
+.authenticatedSwitchContainer {
+  position: absolute;
+  top:125px;
+  left: 20px;
+  z-index: 10; /* Make sure the switch is on top */
+  animation: quickFadeOut 0.8s ease forwards;
 }
 
 .switch {
@@ -189,6 +311,17 @@
   animation-delay: 2s;
   opacity: 1;
 }
+
+.authenticatedBottomContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  animation: quickFadeOut 0.8s ease forwards;
+ 
+  opacity: 1;
+}
+
 @keyframes pulse2 {
   0%,
   100% {
@@ -277,4 +410,30 @@
     transform-origin: center;
     opacity: 1;
   }
+}
+
+@keyframes crtOff {
+  0% {
+    transform: scaleY(1) scaleX(1);
+    transform-origin: center;
+  }
+  50% {
+    transform: scaleY(0.003) scaleX(0.8);
+    transform-origin: center;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0.0001) scaleX(0);
+    transform-origin: center;
+    opacity: 1;
+  }
+}
+
+@keyframes quickFadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes quickFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

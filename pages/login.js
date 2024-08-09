@@ -15,11 +15,13 @@ export default function Login() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isSwitchOn, setIsSwitchOn] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // New state to handle authentication
   const router = useRouter();
-
+  
   // Create an audio instance
+  const success = typeof Audio !== "undefined" && new Audio('/assets/success.wav');
   const switchSound = typeof Audio !== "undefined" && new Audio('/assets/switch.wav');
-
+  const puffPop = typeof Audio !== "undefined" && new Audio('/assets/pop.mp3');
   const handleSwitchClick = () => {
     if (switchSound) {
       switchSound.play();
@@ -36,6 +38,20 @@ export default function Login() {
     }
   }, [isSwitchOn]);
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      // Change the background video and navigate away after 2 seconds
+      puffPop.play();
+      const video = document.getElementById('backgroundVideo');
+      video.src = '/assets/puffLoginAwake.mp4';
+      video.play();
+      success.play();
+      setTimeout(() => {
+        router.push('/');
+      }, 4000);
+    }
+  }, [isAuthenticated, router]);
+
   const submit = (e) => {
     e.preventDefault();
     const user = {
@@ -51,26 +67,26 @@ export default function Login() {
       register(user).then((res) => {
         if (res.token) {
           setToken(res.token);
-          router.push('/');
+          setIsAuthenticated(true); // Set authenticated state
         }
       });
     } else {
       login(user).then((res) => {
         if (res.token) {
           setToken(res.token);
-          router.push('/');
+          setIsAuthenticated(true); // Set authenticated state
         }
       });
     }
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.switchContainer}>
+    <div className={isAuthenticated ? styles.authenticatedContainer : styles.container}>
+      <div className={isAuthenticated ? styles.authenticatedSwitchContainer : styles.switchContainer}>
         <Image
           src={isSwitchOn ? '/assets/switchOn.png' : '/assets/switchOff.png'}
           alt="Light Switch"
-          className={styles.switch}
+          className={isAuthenticated ? styles.authenticatedSwitch : styles.switch}
           onClick={handleSwitchClick}
           width={200}
           height={200}
@@ -80,7 +96,7 @@ export default function Login() {
         <>
           <video
             id="backgroundVideo"
-            className={styles.videoBackground}
+            className={isAuthenticated ? styles.authenticatedVideoBackground : styles.videoBackground}
             autoPlay
             loop
             muted
@@ -88,14 +104,14 @@ export default function Login() {
             <source src="/assets/login.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <main className={styles.authContainer}>
+          <main className={isAuthenticated ? styles.authenticatedAuthContainer : styles.authContainer}>
             <section>
-              <form className={styles.authForm} onSubmit={submit}>
-                <h1 className={styles.header699}>PUFF</h1>
+              <form className={isAuthenticated ? styles.authenticatedAuthForm : styles.authForm} onSubmit={submit}>
+                <h1 className={isAuthenticated ? styles.authenticatedHeader699 : styles.header699}>PUFF</h1>
                 <div>
                   <input
                     type="text"
-                    className={styles.authInput}
+                    className={isAuthenticated ? styles.authenticatedAuthInput : styles.authInput}
                     onChange={(evt) => setUsername(evt.target.value)}
                     placeholder="Username"
                     required
@@ -105,7 +121,7 @@ export default function Login() {
                 <div>
                   <input
                     type="password"
-                    className={styles.authInput}
+                    className={isAuthenticated ? styles.authenticatedAuthInput : styles.authInput}
                     onChange={(evt) => setPassword(evt.target.value)}
                     placeholder="Password"
                     required
@@ -115,28 +131,27 @@ export default function Login() {
                   <div>
                     <input
                       type="password"
-                      className={styles.authInput2}
+                      className={isAuthenticated ? styles.authenticatedAuthInput2 : styles.authInput2}
                       onChange={(evt) => setConfirmPassword(evt.target.value)}
                       placeholder="Confirm Password"
                       required
                     />
                   </div>
                 )}
-                <button className={styles.funButton} type="submit">
+                <button className={isAuthenticated ? styles.authenticatedFunButton : styles.funButton} type="submit">
                     {isRegister ? 'Register' : 'Sign in'}
-                  </button>
-                <div className={styles.bottomContainer}>
-                  
-                  <div className={styles.registerText}>
-                    {isRegister ? 'Already have an account?' : "Don't have an account?"}</div>
-                    <span
-                      className={styles.registerLink} 
-                      onClick={() => setIsRegister(!isRegister)}
-                    >
-                      {isRegister ? 'SIGN IN' : 'REGISTER'}
-                    </span>
+                </button>
+                <div className={isAuthenticated ? styles.authenticatedBottomContainer : styles.bottomContainer}>
+                  <div className={isAuthenticated ? styles.registerText : styles.registerText}>
+                    {isRegister ? 'Already have an account?' : "Don't have an account?"}
                   </div>
-                
+                  <span
+                    className={isAuthenticated ? styles.registerLink : styles.registerLink}
+                    onClick={() => setIsRegister(!isRegister)}
+                  >
+                    {isRegister ? 'SIGN IN' : 'REGISTER'}
+                  </span>
+                </div>
               </form>
             </section>
           </main>

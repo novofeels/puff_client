@@ -57,11 +57,11 @@
   left: 0;
   width: 100%;
   height: 5px; /* Adjust the height of the stripe */
-  background: rgb(132, 212, 255); /* Adjust the color and opacity of the stripe */
-  z-index: 10; /* Ensure the stripe is behind the text */
+  background: rgb(93, 173, 216); /* Adjust the color and opacity of the stripe */
+  z-index: -1; /* Ensure the stripe is behind the text */
   transform: translateY(-50%);
   border-radius: 8px;
-  box-shadow: 2px 2px 15px 4npmpx #8eddff; /* Glowing effect on hover/focus */
+  box-shadow: 0 0 15px 2px #49e6d8; /* Glowing effect on hover/focus */
   animation: crtOn 0.8s ease forwards, crtFlicker 3s ease forwards;
     
    

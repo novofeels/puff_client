@@ -7,7 +7,29 @@ import Image from 'next/dist/client/image';
 
 function Achievements() {
   const [achievements, setAchievements] = useState([]);
+  const ambience = typeof Audio !== "undefined" && new Audio('/assets/ambience.mp3');
 
+  useEffect(() => {
+    
+    ambience.play();
+    return () => {
+      // Function to gradually decrease the volume
+      const fadeOutVolume = () => {
+        let volume = ambience.volume;
+        const interval = setInterval(() => {
+          if (volume > 0) {
+            volume = Math.max(0, volume - 0.1); // Adjust the decrement value as needed
+            ambience.volume = volume;
+          } else {
+            clearInterval(interval);
+            ambience.pause(); // Stop the ambience when volume reaches 0
+          }
+        }, 100); // Adjust the interval time as needed
+      };
+      fadeOutVolume();
+    };
+  }, []);
+  
   useEffect(() => {
     fetchAchievements();
   }, []);
