@@ -15,7 +15,7 @@ function Feedbacks() {
   const ambience = typeof Audio !== "undefined" && new Audio('/puff_client/assets/ambience.mp3');
 
   useEffect(() => {
-    
+    ambience.volume = 0.2;
     ambience.play();
     return () => {
       // Function to gradually decrease the volume
