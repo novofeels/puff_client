@@ -18,10 +18,10 @@ export default function Index() {
   const [emphasizingYOUR, setEmphasizingYOUR] = useState(false);
 
   // Ensure sounds are loaded correctly
-  const highBlip = typeof Audio !== "undefined" ? new Audio('/assets/HighBlip.mp3') : null;
-  const mediumBlip = typeof Audio !== "undefined" ? new Audio('/assets/MediumBlip.mp3') : null;
-  const lowBlip = typeof Audio !== "undefined" ? new Audio('/assets/LowBlip.mp3') : null;
-  const ambience = typeof Audio !== "undefined" && new Audio('/assets/ambience.mp3');
+  const highBlip = typeof Audio !== "undefined" ? new Audio('/puff_client/assets/HighBlip.mp3') : null;
+  const mediumBlip = typeof Audio !== "undefined" ? new Audio('/puff_client/assets/MediumBlip.mp3') : null;
+  const lowBlip = typeof Audio !== "undefined" ? new Audio('/puff_client/assets/LowBlip.mp3') : null;
+  const ambience = typeof Audio !== "undefined" && new Audio('/puff_client/assets/ambience.mp3');
   useEffect(() => {
     
     ambience.play();
@@ -130,7 +130,7 @@ export default function Index() {
   return (
     <div className={styles.container4welcome}>
       <img
-        src={'/assets/puffSwim.gif'}
+        src={'/puff_client/assets/puffSwim.gif'}
         alt="puff"
         className={styles.puffGif}
         onClick={handleStart}

@@ -70,18 +70,18 @@ function Achievements() {
             loop
             muted
           >
-            <source src="/assets/scrolling_background.mp4" type="video/mp4" />
+            <source src="puff_client/assets/scrolling_background.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className={styles.overlay}>
       <h1 className={styles.title}>ACHIEVEMENTS</h1>
       <div className={styles.cardsContainer}>
-        {achievements.map((achievement) => (
+        {achievements?.map((achievement) => (
           <div className={styles.card} key={achievement.id}>
             <div className={styles.cardImage}>
               <figure className={styles.image}>
                 <img
-                  src="/assets/firstBlub.png"  // Static image path
+                  src="/puff_client/assets/firstBlub.png"  // Static image path
                   alt={achievement.description}
                   className={achievement.achieved ? styles.fullColor : styles.faded}
                   width={200}

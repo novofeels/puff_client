@@ -10,9 +10,9 @@ function Feedbacks() {
   const [message, setMessage] = useState(''); // To display success or error messages
   const [submitted, setSubmitted] = useState(false);
   const textareaRef = useRef(null);
-  const success = typeof Audio !== "undefined" && new Audio('/assets/success.wav');
-  const error = typeof Audio !== "undefined" && new Audio('/assets/error.wav');
-  const ambience = typeof Audio !== "undefined" && new Audio('/assets/ambience.mp3');
+  const success = typeof Audio !== "undefined" && new Audio('/puff_client/assets/success.wav');
+  const error = typeof Audio !== "undefined" && new Audio('/puff_client/assets/error.wav');
+  const ambience = typeof Audio !== "undefined" && new Audio('/puff_client/assets/ambience.mp3');
 
   useEffect(() => {
     
@@ -65,7 +65,7 @@ function Feedbacks() {
   return (
     <div className={styles.container}>
       <video autoPlay loop muted className={styles.video}>
-        <source src="/assets/scrolling_background.mp4" type="video/mp4" />
+        <source src="/puff_client/assets/scrolling_background.mp4" type="video/mp4" />
       </video>
       <div className={styles.overlay}>
         <h1 className={styles.title}>FEEDBACK</h1>
