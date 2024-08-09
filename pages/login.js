@@ -42,7 +42,7 @@ export default function Login() {
       // Change the background video and navigate away after 2 seconds
       puffPop.play();
       const video = document.getElementById('backgroundVideo');
-      video.src = '/assets/puffLoginAwake.mp4';
+      video.src = '/puff_client/assets/puffLoginAwake.mp4';
       video.play();
       success.play();
       setTimeout(() => {
@@ -83,7 +83,7 @@ export default function Login() {
     <div className={isAuthenticated ? styles.authenticatedContainer : styles.container}>
       <div className={isAuthenticated ? styles.authenticatedSwitchContainer : styles.switchContainer}>
       <img
-  src={isSwitchOn ? `/assets/switchOn.png` : `/assets/switchOff.png`}
+  src={isSwitchOn ? `/puff_client/assets/switchOn.png` : `/puff_client/assets/switchOff.png`}
   alt="Light Switch"
   className={isAuthenticated ? styles.authenticatedSwitch : styles.switch}
   onClick={handleSwitchClick}
@@ -101,7 +101,7 @@ export default function Login() {
             loop
             muted
           >
-            <source src="/assets/login.mp4" type="video/mp4" />
+            <source src="/puff_client/assets/login.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <main className={isAuthenticated ? styles.authenticatedAuthContainer : styles.authContainer}>
