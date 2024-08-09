@@ -18,9 +18,9 @@ export default function Login() {
   const router = useRouter();
   
   // Create an audio instance
-  const success = typeof Audio !== "undefined" && new Audio('/assets/success.wav');
-  const switchSound = typeof Audio !== "undefined" && new Audio('/assets/switch.wav');
-  const puffPop = typeof Audio !== "undefined" && new Audio('/assets/pop.mp3');
+  const success = typeof Audio !== "undefined" && new Audio('/puff_client/assets/success.wav');
+  const switchSound = typeof Audio !== "undefined" && new Audio('/puff_client/assets/switch.wav');
+  const puffPop = typeof Audio !== "undefined" && new Audio('/puff_client/assets/pop.mp3');
   const handleSwitchClick = () => {
     if (switchSound) {
       switchSound.play();

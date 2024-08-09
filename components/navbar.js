@@ -26,7 +26,7 @@ export default function Navbar() {
     <nav className={`${styles.navbar} ${styles.fixedTop}`} role="navigation" aria-label="main navigation">
       <div className={styles.navbarBrand}>
         <Link href="/">
-          <img src="/assets/logo.png" alt="Logo" className={styles.logo} />
+          <img src="/puff_client/assets/logo.png" alt="Logo" className={styles.logo} />
         </Link>
       </div>
 
