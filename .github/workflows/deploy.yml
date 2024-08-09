@@ -23,23 +23,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4  # Check out the repository code
+
       - name: Set up Node
         uses: actions/setup-node@v4  # Set up Node.js
         with:
           node-version: 20  # Specify the Node.js version
           cache: 'npm'  # Cache npm dependencies
+
       - name: Install dependencies
         run: npm ci  # Install dependencies from package-lock.json
+
       - name: Build
         run: npm run build  # Build the Next.js application
+
       - name: Export Static Site
-        run: npm run export  # Export static files for GitHub Pages
-      - name: Setup Pages
-        uses: actions/configure-pages@v4  # Configure the GitHub Pages deployment
+        run: npm run export  # Export static files
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3  # Upload the static files
         with:
           path: './out'  # Path to the exported static files
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4  # Deploy the static files to GitHub Pages
+
