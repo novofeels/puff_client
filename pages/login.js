@@ -82,14 +82,15 @@ export default function Login() {
   return (
     <div className={isAuthenticated ? styles.authenticatedContainer : styles.container}>
       <div className={isAuthenticated ? styles.authenticatedSwitchContainer : styles.switchContainer}>
-        <img
-          src={isSwitchOn ? '/assets/switchOn.png' : '/assets/switchOff.png'}
-          alt="Light Switch"
-          className={isAuthenticated ? styles.authenticatedSwitch : styles.switch}
-          onClick={handleSwitchClick}
-          width={200}
-          height={200}
-        />
+      <img
+  src={isSwitchOn ? `/assets/switchOn.png` : `/assets/switchOff.png`}
+  alt="Light Switch"
+  className={isAuthenticated ? styles.authenticatedSwitch : styles.switch}
+  onClick={handleSwitchClick}
+  width={200}
+  height={200}
+/>
+
       </div>
       {isSwitchOn && (
         <>

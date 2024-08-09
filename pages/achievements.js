@@ -84,8 +84,9 @@ function Achievements() {
                   src="/assets/firstBlub.png"  // Static image path
                   alt={achievement.description}
                   className={achievement.achieved ? styles.fullColor : styles.faded}
-                  width={300}
-                  height={300}
+                  width={200}
+                  height={200
+                  }
                 />
               </figure>
             </div>

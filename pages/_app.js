@@ -26,7 +26,7 @@ export default function MyApp({ Component, pageProps }) {
           <Head>
             <title>Puff</title>
             {/* Add favicon links */}
-            <link rel="icon" href="./assets/logo.png" type="image/png" />
+            <link rel="icon" href=".//assets/logo.png" type="image/png" />
           </Head>
           <Component {...pageProps} />
         </>
