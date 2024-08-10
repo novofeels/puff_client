@@ -256,6 +256,7 @@
 
 
 .switchContainer {
+
   position: absolute;
   top:125px;
   left: 20px;
@@ -263,6 +264,9 @@
 }
 
 .authenticatedSwitchContainer {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top:125px;
   left: 20px;
@@ -274,6 +278,18 @@
   cursor: pointer;
   z-index: 10;
   animation: stretchFadeIn 3s ease forwards, pulse2 2.5s infinite;
+}
+
+.switchText {
+  z-index: 100;
+  font-size: 1.1rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  animation: stretchFadeIn 1.5s ease forwards, color-cycle-goldenrod-black4 2s forwards;
+  animation-delay: 0s;
+  opacity: 0;
+margin-left: 1.5rem;
+
 }
 
 .registerText {
@@ -321,6 +337,8 @@
  
   opacity: 1;
 }
+
+
 
 @keyframes pulse2 {
   0%,

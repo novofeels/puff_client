@@ -76,8 +76,13 @@ export default function Login() {
         }
       });
     } else {
-    setToken('token');
-    setIsAuthenticated(true);
+      login(user).then((res) => {
+        if (res.token) {
+          setToken(res.token);
+          setIsAuthenticated(true); // Set authenticated state
+        }
+      })
+ 
     }
   };
 
@@ -92,7 +97,7 @@ export default function Login() {
   width={200}
   height={200}
 />
-
+<div className={styles.switchText}>{isSwitchOn ? '^TURN OFF LIGHT^' : '^TURN ON LIGHT^'}</div>
       </div>
       {isSwitchOn && (
         <>
