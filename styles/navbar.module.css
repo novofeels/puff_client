@@ -41,9 +41,10 @@
   .navbarItem {
     font-family: "Jersey 10";
     margin: 0 1rem;
-    color: #333;
+    color: #ccc8c8;
     text-decoration: none;
     cursor: pointer;
+    font-size: 1rem;
   }
   
   .navbarItem:hover {
