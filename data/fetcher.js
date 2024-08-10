@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8000'
+const API_URL = 'https://squid-app-ng44s.ondigitalocean.app'
 
 const checkError = (res) => {
   if (!res.ok) {
