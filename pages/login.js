@@ -27,6 +27,7 @@ export default function Login() {
   const success = typeof Audio !== "undefined" && new Audio('/puff_client/assets/success.wav');
   const switchSound = typeof Audio !== "undefined" && new Audio('/puff_client/assets/switch.wav');
   const puffPop = typeof Audio !== "undefined" && new Audio('/puff_client/assets/pop.mp3');
+  const errorSound = typeof Audio !== "undefined" && new Audio('/puff_client/assets/error.wav');
   const handleSwitchClick = () => {
     if (switchSound) {
       switchSound.play();
@@ -63,7 +64,7 @@ export default function Login() {
       username,
       password,
     };
-
+  
     if (isRegister) {
       if (password !== confirmPassword) {
         alert('Passwords do not match');
@@ -73,6 +74,9 @@ export default function Login() {
         if (res.token) {
           setToken(res.token);
           setIsAuthenticated(true); // Set authenticated state
+        } else if (res.error) {
+          alert('Username already in use');
+          errorSound.play(); // Play the error sound
         }
       });
     } else {
@@ -80,12 +84,14 @@ export default function Login() {
         if (res.token) {
           setToken(res.token);
           setIsAuthenticated(true); // Set authenticated state
+        } else {
+          alert('Unable to verify credentials, check username and password and try again');
+          errorSound.play(); // Play the error sound
         }
-      })
- 
+      });
     }
   };
-
+  
   return (
     <div className={isAuthenticated ? styles.authenticatedContainer : styles.container}>
       <div className={isAuthenticated ? styles.authenticatedSwitchContainer : styles.switchContainer}>

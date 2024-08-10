@@ -34,11 +34,10 @@ export default function Navbar() {
         <div className={styles.navbarStart}>
           {isLoggedIn && (
             <>
-              <Link href="/playgame"><a className={styles.navbarItem}>PLAY GAME</a></Link>
-              <Link href="/leaderboard"><a className={styles.navbarItem}>LEADERBOARD</a></Link>
-              <Link href="/achievements"><a className={styles.navbarItem}>ACHIEVEMENTS</a></Link>
-              <Link href="/feedback"><a className={styles.navbarItem}>FEEDBACK</a></Link>
-              
+              <Link href="/playgame" className={styles.navbarItem}>PLAY GAME</Link>
+              <Link href="/leaderboard" className={styles.navbarItem}>LEADERBOARD</Link>
+              <Link href="/achievements" className={styles.navbarItem}>ACHIEVEMENTS</Link>
+              <Link href="/feedback" className={styles.navbarItem}>FEEDBACK</Link>
             </>
           )}
         </div>
