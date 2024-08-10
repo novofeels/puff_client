@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 export default function Index() {
   const text =
-  "I'm Puff!\\n\\nDivers are always trying to harvest my venom to poison there political rivals, so I need your help!\\n\\nUse the arrow keys or WASD (if you're a nerd) to move me around.\\n\\nClick your mouse to shoot.\\n\\nMake sure to run over bubbles to get ammo and avoid those pesky mines!\\n\\nWhen you're ready, select 'Play Game'.\\n\\nAnd don't forget to leave me feedback with your ideas to add to the game!";
+  "I'm Puff!\\n\\nDivers are always trying to harvest my venom to poison their political rivals, so I need your help!\\n\\nUse the arrow keys or WASD (if you're a nerd) to move me around.\\n\\nClick your mouse to shoot.\\n\\nMake sure to run over bubbles to get ammo and avoid those pesky mines!\\n\\nWhen you're ready, select 'Play Game'.\\n\\nAnd don't forget to leave me feedback with your ideas to add to the game!";
 
 
   const defaultText = "What are you waiting for, click on me!";
