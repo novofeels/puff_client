@@ -52,18 +52,18 @@ function Leaderboard() {
               </tr>
             </thead>
             <tbody>
-              {scores?.map((score, index) => (
-                <tr
-                  key={index}
-                  className={`${styles.card} ${index < 3 ? styles[`rank${index + 1}`] : styles.row}`}
-                >
-                  <td>{index + 1}</td>
-                  <td>{score.user}</td>
-                  <td>{score.score}</td>
-                  <td>{new Date(score.date).toLocaleDateString()}</td>
-                </tr>
-              ))}
-            </tbody>
+  {scores?.slice(0, 10).map((score, index) => (
+    <tr
+      key={index}
+      className={`${styles.card} ${index < 3 ? styles[`rank${index + 1}`] : styles.row}`}
+    >
+      <td>{index + 1}</td>
+      <td>{score.user}</td>
+      <td>{score.score}</td>
+      <td>{new Date(score.date).toLocaleDateString()}</td>
+    </tr>
+  ))}
+</tbody>
           </table>
         </div>
       </div>
